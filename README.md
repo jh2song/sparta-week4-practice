@@ -1,6 +1,8 @@
 # 카드 퍼즐 게임
 ## 소개
 이 프로젝트는 짝 맞추기 카드 게임입니다. 제한 시간(60초) 안에 4x4 카드들의 짝을 맞춰서 카드를 없애고 모든 카드를 없애는것이 게임의 목표입니다.
+
+[유튜브 시연 영상](https://www.youtube.com/watch?v=osfHgInEGrQ)
 ## 코드 설명
 - [GameManager.cs](https://github.com/jh2song/sparta-week4-practice/blob/main/Assets/Scripts/GameManager.cs)
   - 싱글턴화를 해서 게임의 구조를 감쌉니다.
