@@ -9,6 +9,16 @@ public class GameManager : MonoBehaviour
     public Text timeTxt;
     private float time = 0.0f;
     public GameObject card;
+
+    public GameObject firstCard;
+    public GameObject secondCard;
+    
+    public static GameManager I;
+
+    void Awake()
+    {
+        I = this;
+    }
     
     void Start()
     {
@@ -34,5 +44,27 @@ public class GameManager : MonoBehaviour
     {
         time += Time.deltaTime;
         timeTxt.text = time.ToString("N2");
+    }
+
+    public void IsMatched()
+    {
+        string firstCardImage = 
+            firstCard.transform.Find("Front").GetComponent<SpriteRenderer>().sprite.name;
+        string secondCardImage = 
+            secondCard.transform.Find("Front").GetComponent<SpriteRenderer>().sprite.name;
+
+        if (firstCardImage == secondCardImage)
+        {
+            firstCard.GetComponent<Card>().DestroyCard();
+            secondCard.GetComponent<Card>().DestroyCard();
+        }
+        else
+        {
+            firstCard.GetComponent<Card>().CloseCard();
+            secondCard.GetComponent<Card>().CloseCard();
+        }
+
+        firstCard = null;
+        secondCard = null;
     }
 }
